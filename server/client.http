@@ -1,0 +1,45 @@
+#Variables
+@baseUrl =  http://localhost:3333
+
+# Health check
+GET {{ baseUrl }}/health
+
+
+###
+
+# GET rooms
+# @name getRooms
+GET {{ baseUrl }}/rooms
+
+###
+
+# Create room
+# @name createRoom
+POST {{ baseUrl }}/rooms
+Content-Type: application/json
+
+{
+  "name": "Sala de teste",
+  "description": "Essa é uma sala de teste"
+}
+
+###
+
+@roomId = {{createRoom.response.body.$.roomId}}
+
+###
+
+# Get Questions
+# @name getRoomQuestions
+GET {{ baseUrl }}/rooms/{{roomId}}/questions
+
+###
+
+# Create question
+# @name createQuestion
+POST {{ baseUrl }}/rooms/54ed8764-e2cd-46b2-92b9-74e58354be89/questions
+Content-Type: application/json
+
+{
+  "question": "O que é Vue,js e sua diferença em relação ao Angular?"
+}
