@@ -52,7 +52,7 @@ export function QuestionForm({ roomId }: QuestionFormProps) {
   }
 
   return (
-    <Card>
+    <Card className="">
       <CardHeader>
         <CardTitle>Fazer uma Pergunta</CardTitle>
         <CardDescription>
